@@ -6,24 +6,22 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # ignores the warning about CPU Tensor
 
 
 class NeuralNetwork:
-    ''' The Neural Network class. '''
+    """ The Neural Network class. """
 
     def __init__(self, X, y):
-        '''
+        """
         :param X: vector with training images data for the model to train on
         :param y: vector of labels of training images
-        '''
+        """
         self.train_images = X
         self.train_labels = y
 
-    def __str__(self):
-        return self.get_model().layers
 
     def get_model(self):
-        '''
+        """
         Creates, trains and returns the Neural Network.
         :return: Sequential object trained on the data passed to the class constructor. Model score on test set ~97.5%
-        '''
+        """
         model = Sequential([
             layers.Flatten(),
             layers.Dense(128, activation='relu'),  # 1st layer with 128 neurons and rectifier activation function
@@ -46,6 +44,6 @@ model = NeuralNetwork(train_images, train_labels).get_model()
 
 try:
     with open('model.h5', 'wb') as file:
-        pickle.dump(model, file)  # serialize the trained ANN
+        pickle.dump(model, file)                # serialize the trained ANN
 except:
     print('Serialization failed')
