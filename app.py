@@ -48,7 +48,7 @@ class App:
         x, y = event.x, event.y
         if canvas.old_coords:
             x1, y1 = canvas.old_coords
-            canvas.create_oval(x, y, x1, y1, width=15)
+            canvas.create_oval(x, y, x1, y1, width=12)
         canvas.old_coords = x, y
 
     def reset_coords(self, event):
@@ -71,7 +71,7 @@ class App:
         Uses model to predict the number drawn by user.
         Then, prints out the probabilities and predicted number in console.
         """
-        image = np.array(img_to_mnist('IMG.jpg')).reshape((1, 28, 28))
+        image = np.array(img_to_mnist('IMG.jpg')).reshape((1, 28, 28, 1))
         predicted_values = MODEL.predict(image)  # probability distribution for digits from 0-9
 
         for number in range(10):
