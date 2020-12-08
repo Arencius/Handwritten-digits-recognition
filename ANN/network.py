@@ -7,16 +7,16 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # ignores the warning about CPU Tensor
 
 BATCH_SIZE = 32
 EPOCHS = 3
-CALLBACK = callbacks.EarlyStopping(monitor='val_loss', patience=2)
+CALLBACK = callbacks.EarlyStopping(monitor='val_loss', patience=2) 
 
 
 class NeuralNetwork:
-    """ The Neural Network class. """
+    """ The Convolutional Neural Network class designed to recognize handwritten digits. """
 
     def get_model(self):
         """
         Creates, trains and returns the Convolutional Neural Network.
-        :return: Compiled CNN model. Model score on test set ~97.5%
+        :return: The compiled CNN model.
         """
 
         model = models.Sequential([
